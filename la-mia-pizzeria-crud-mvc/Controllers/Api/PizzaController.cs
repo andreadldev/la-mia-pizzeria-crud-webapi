@@ -81,14 +81,14 @@ namespace la_mia_pizzeria_crud_mvc.Controllers.Api
         {
             using (PizzaContext ctx = new PizzaContext())
             {
-                var savedPost = ctx.Pizzas.FirstOrDefault(p => p.Id == id);
+                var _pizza = ctx.Pizzas.FirstOrDefault(p => p.Id == id);
 
-                if (savedPost is null)
+                if (_pizza is null)
                 {
                     return NotFound();
                 }
 
-                ctx.Pizzas.Remove(savedPost);
+                ctx.Pizzas.Remove(_pizza);
                 ctx.SaveChanges();
 
                 return Ok();
