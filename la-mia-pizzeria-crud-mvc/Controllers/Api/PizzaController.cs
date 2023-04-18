@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Hosting;
 
 namespace la_mia_pizzeria_crud_mvc.Controllers.Api
 {
@@ -23,7 +24,7 @@ namespace la_mia_pizzeria_crud_mvc.Controllers.Api
         }
 
         [HttpGet("{id}")]
-        public IActionResult GetPost(int id)
+        public IActionResult GetPizzaByID(int id)
         {
             using (PizzaContext ctx = new PizzaContext())
             {
@@ -33,6 +34,18 @@ namespace la_mia_pizzeria_crud_mvc.Controllers.Api
                 {
                     return NotFound();
                 }
+
+                return Ok(pizza);
+            }
+        }
+
+        [HttpPost]
+        public IActionResult CreatePizza(Pizza pizza)
+        {
+            using (PizzaContext ctx = new PizzaContext())
+            {
+                ctx.Pizzas.Add(pizza);
+                ctx.SaveChanges();
 
                 return Ok(pizza);
             }
