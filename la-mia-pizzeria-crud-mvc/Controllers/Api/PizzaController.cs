@@ -50,5 +50,29 @@ namespace la_mia_pizzeria_crud_mvc.Controllers.Api
                 return Ok(pizza);
             }
         }
+
+        [HttpPut("{id}")]
+        public IActionResult PutPizza(int id, [FromBody] Pizza pizza)
+        {
+            using (PizzaContext ctx = new PizzaContext())
+            {
+                var _pizza = ctx.Pizzas.FirstOrDefault(p => p.Id == id);
+
+                if (_pizza is null)
+                {
+                    return NotFound();
+                }
+
+                _pizza.Name = pizza.Name;
+                _pizza.Description = pizza.Description;
+                _pizza.Price = pizza.Price;
+                _pizza.Img = pizza.Img;
+                _pizza.CategoryId = pizza.CategoryId;
+
+                ctx.SaveChanges();
+
+                return Ok();
+            }
+        }
     }
 }
