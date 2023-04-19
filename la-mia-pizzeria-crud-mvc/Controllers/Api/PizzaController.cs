@@ -6,7 +6,7 @@ using Microsoft.Extensions.Hosting;
 
 namespace la_mia_pizzeria_crud_mvc.Controllers.Api
 {
-    [Route("api/[controller]/[action]")]
+    [Route("api/[controller]")]
     [ApiController]
     public class PizzaController : ControllerBase
     {

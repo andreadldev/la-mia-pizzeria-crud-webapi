@@ -1,0 +1,42 @@
+﻿@{
+    Layout = "_Layout";
+}
+
+<div class="container px-5 bg-light" id="menu">
+    <div class="text-center pt-4 text-danger">
+        <h1>Menù pizze API</h1>
+        <h2>@ViewData["Message"]</h2>
+    </div>
+
+    <p id="loader">...</p>
+
+    <p id="emptyMessage">Nessun elemento presente</p>
+
+    <div>
+@*        <div class="my-4" id="filter">
+            <div class="form-field">
+                <label>Filtra per nome:</label>
+                <input placeholder="nome pizza" />
+            </div>
+        </div>*@
+
+        <table id="table">
+            <thead>
+                <tr>
+                    <th class="pe-5">ID</th>
+                    <th class="pe-5">Immagine</th>
+                    <th class="pe-5">Nome</th>
+                    <th class="pe-5">Descrizione</th>
+                </tr>
+            </thead>
+            <tbody id="pizzaList"></tbody>
+        </table>
+    </div>
+</div>
+
+@section Scripts
+{
+    <script>
+        loadPizzas();
+    </script>
+}

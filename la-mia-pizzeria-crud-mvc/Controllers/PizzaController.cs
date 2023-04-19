@@ -22,6 +22,11 @@ namespace la_mia_pizzeria_crud_mvc.Controllers
             return View("Index", menu);
         }
 
+        public IActionResult ApiIndex()
+        {
+            return View();
+        }
+
         public IActionResult Show(long id)
         {
             using var ctx = new PizzaContext();
