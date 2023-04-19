@@ -1,0 +1,47 @@
+﻿@{
+    Layout = "_Layout";
+}
+
+<a href="@Url.Action("ApiIndex", "Pizza")">Indietro</a>
+<div class="container">
+	<div>
+		<form id="post-create-form">
+			<div class="form-field">
+				<label for="name">Nome</label>
+				<input id="name" />
+				<span id="name-errors"></span>
+			</div>
+			<div class="form-field">
+				<label for="description">Descrizione</label>
+				<textarea id="description"></textarea>
+				<span id="description-errors"></span>
+			</div>
+			<div class="form-field">
+				<label for="image-url">Image source</label>
+				<input id="image-url" value="https://via.placeholder.com/100x100 " />
+				<span id="image-url-errors"></span>
+			</div>
+			<div class="form-field">
+				<label for="price">Prezzo</label>
+				<input id="price"></input>
+				<span id="price-errors"></span>
+			</div>
+			<div class="form-field">
+				<label for="category">Categoria</label>
+				<select id="category">
+					<option value="4">Classiche</option>
+					<option value="5">Vegetariane</option>
+					<option value="6">Di Mare</option>
+				</select>
+			</div>
+			<button type="submit">Create</button>
+		</form>
+	</div>
+</div>
+
+@section Scripts
+	{
+	<script>
+		initCreateForm();
+	</script>
+}

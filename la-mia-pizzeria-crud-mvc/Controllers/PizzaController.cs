@@ -27,7 +27,12 @@ namespace la_mia_pizzeria_crud_mvc.Controllers
             return View();
         }
 
-        public IActionResult Show(long id)
+		public IActionResult ApiCreate()
+		{
+			return View();
+		}
+
+		public IActionResult Show(long id)
         {
             using var ctx = new PizzaContext();
             var menuItem = ctx.Pizzas.Include(p => p.Category).Include(p => p.Ingredients).First(p => p.Id == id);
